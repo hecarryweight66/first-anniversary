@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Choose Your Gift 🎁</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top,#ffd6e7,#b48cff 45%,#5146b8);
+    font-family:monospace;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* MAIN */
+
+.game{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+h1{
+    font-size:clamp(28px,7vw,50px);
+    margin-bottom:10px;
+    text-shadow:4px 4px #7d4ca8;
+}
+
+.subtitle{
+    font-size:16px;
+    margin-bottom:45px;
+}
+
+/* GIFT ROOM */
+
+.gifts{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:45px;
+    flex-wrap:wrap;
+}
+
+/* GIFT */
+
+.gift{
+    width:150px;
+    height:190px;
+    cursor:pointer;
+    transition:.3s;
+    position:relative;
+}
+
+.gift:hover{
+    transform:translateY(-12px) scale(1.08);
+}
+
+/* BOX */
+
+.box{
+    position:absolute;
+    bottom:0;
+    left:10px;
+    width:130px;
+    height:105px;
+    background:#ff5f91;
+    border:5px solid #8f315b;
+    box-shadow:8px 8px #6e315f;
+}
+
+/* LID */
+
+.lid{
+    position:absolute;
+    top:45px;
+    left:0;
+    width:150px;
+    height:40px;
+    background:#ff78a5;
+    border:5px solid #8f315b;
+    z-index:2;
+    transition:.5s;
+}
+
+/* RIBBON */
+
+.ribbon{
+    position:absolute;
+    left:58px;
+    top:45px;
+    width:30px;
+    height:105px;
+    background:#ffd45c;
+    z-index:3;
+}
+
+.ribbon-top{
+    position:absolute;
+    top:25px;
+    left:58px;
+    width:30px;
+    height:35px;
+    background:#ffd45c;
+    z-index:4;
+}
+
+/* BOW */
+
+.bow{
+    position:absolute;
+    top:10px;
+    left:42px;
+    z-index:5;
+    font-size:45px;
+}
+
+/* EMOJI */
+
+.gift-icon{
+    position:absolute;
+    z-index:6;
+    top:78px;
+    left:48px;
+    font-size:32px;
+}
+
+/* LABEL */
+
+.label{
+    position:absolute;
+    bottom:-40px;
+    width:100%;
+    font-size:17px;
+    font-weight:bold;
+    text-shadow:2px 2px #713d78;
+}
+
+/* CLICK EFFECT */
+
+.gift.open .lid{
+    transform:translateY(-45px) rotate(-5deg);
+}
+
+.gift.open{
+    transform:scale(1.1);
+}
+
+/* POPUP */
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(25,10,50,.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:100;
+    padding:20px;
+}
+
+.popup.show{
+    display:flex;
+}
+
+.popup-box{
+    background:#fff0f7;
+    color:#54294f;
+    max-width:420px;
+    width:100%;
+    padding:35px 25px;
+    border-radius:25px;
+    border:5px solid #ff78a5;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+    animation:popup .5s ease;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.popup-box h2{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.popup-box p{
+    font-size:16px;
+    line-height:1.7;
+}
+
+.close{
+    margin-top:25px;
+    padding:12px 28px;
+    border:none;
+    border-radius:20px;
+    background:#ff5f91;
+    color:white;
+    font-family:monospace;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.close:hover{
+    transform:scale(1.08);
+}
+
+/* HEARTS */
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    pointer-events:none;
+    animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .gifts{
+        gap:30px;
+    }
+
+    .gift{
+        width:120px;
+        height:160px;
+        transform:scale(.85);
+    }
+
+    .gift:hover{
+        transform:scale(.95) translateY(-8px);
+    }
+
+    .box{
+        width:110px;
+        height:85px;
+    }
+
+    .lid{
+        width:130px;
+    }
+
+    .ribbon{
+        left:50px;
+        height:85px;
+    }
+
+    .ribbon-top{
+        left:50px;
+    }
+
+    .bow{
+        left:35px;
+    }
+
+    .gift-icon{
+        left:40px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="game">
+
+    <h1>🎁 CHOOSE A GIFT 🎁</h1>
+
+    <p class="subtitle">
+        You have three gifts waiting for you, Yeshi... ❤️
+    </p>
+
+    <div class="gifts">
+
+        <!-- GIFT 1 -->
+
+        <div class="gift" onclick="openGift(1)">
+
+            <div class="bow">🎀</div>
+
+            <div class="lid"></div>
+
+            <div class="box"></div>
+
+            <div class="ribbon"></div>
+
+            <div class="gift-icon">💌</div>
+
+            <div class="label">
+                My Heart
+            </div>
+
+        </div>
+
+
+        <!-- GIFT 2 -->
+
+        <div class="gift" onclick="openGift(2)">
+
+            <div class="bow">🎀</div>
+
+            <div class="lid"></div>
+
+            <div class="box"></div>
+
+            <div class="ribbon"></div>
+
+            <div class="gift-icon">📸</div>
+
+            <div class="label">
+                Memories
+            </div>
+
+        </div>
+
+
+        <!-- GIFT 3 -->
+
+        <div class="gift" onclick="openGift(3)">
+
+            <div class="bow">🎀</div>
+
+            <div class="lid"></div>
+
+            <div class="box"></div>
+
+            <div class="ribbon"></div>
+
+            <div class="gift-icon">🔐</div>
+
+            <div class="label">
+                Secret
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-box">
+
+        <h2 id="popupTitle"></h2>
+
+        <p id="popupText"></p>
+
+        <button class="close" onclick="closePopup()">
+            Close ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function openGift(number){
+
+    const gifts=document.querySelectorAll(".gift");
+
+    gifts[number-1].classList.add("open");
+
+    setTimeout(()=>{
+
+        if(number===1){
+
+            showPopup(
+                "💌 My Heart",
+                "If I could put everything I feel for you inside this gift, it still wouldn't be enough. You mean more to me than words can explain. ❤️"
+            );
+
+        }
+
+        if(number===2){
+
+            showPopup(
+                "📸 Our Memories",
+                "Every picture holds a little piece of our story. And somehow, every memory becomes more beautiful because you're in it. ❤️"
+            );
+
+        }
+
+        if(number===3){
+
+            closePopup();
+
+            setTimeout(()=>{
+
+                window.location.href="secret.html";
+
+            },300);
+
+        }
+
+    },500);
+
+}
+
+
+function showPopup(title,text){
+
+    document.getElementById("popupTitle").innerHTML=title;
+
+    document.getElementById("popupText").innerHTML=text;
+
+    document.getElementById("popup").classList.add("show");
+
+}
+
+
+function closePopup(){
+
+    document.getElementById("popup").classList.remove("show");
+
+}
+
+
+/* FLOATING HEARTS */
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart";
+
+    const symbols=["❤️","💕","💗","💖","🌸","✨"];
+
+    heart.innerHTML=
+        symbols[Math.floor(Math.random()*symbols.length)];
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=
+        (15+Math.random()*20)+"px";
+
+    heart.style.animationDuration=
+        (4+Math.random()*4)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>

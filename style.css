@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:monospace;
+}
+body{
+    background:linear-gradient(#6d5dfc,#f8a5c2);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:white;
+    text-align:center;
+
+}
+.overlay{
+    width:100%;
+    padding:20px;
+}
+h1{
+    font-size:48px;
+    margin:10px;
+}
+h2{
+    font-size:25px;
+    margin:10px;
+}
+p{
+    font-size:18px;
+    margin:30px;
+
+}
+button{
+    padding:15px 50px;
+    font-size:20px;
+    border:none;
+    border-radius:12px;
+    background:#ff4fa2;
+    color:white;
+    cursor:pointer;
+    transition:3s;
+}
+button:hover{
+    transform:scale(1.08);
+
+}
+.heart{
+    position:absolute;
+    color:pink;
+    font-size:25px;
+    animation:float 6s linear infinite;
+}
+@keyframes float{
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+
+}
+100%{
+    transform:transtaleY(-120vh);
+    opacity:1;
+}
+}    

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Your Secret Surprise ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at top,#ffd1e1,#b78cff 50%,#33235c);
+
+    font-family:monospace;
+
+    color:white;
+
+    text-align:center;
+
+    overflow:hidden;
+
+}
+
+.container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
+h1{
+
+    font-size:clamp(28px,7vw,48px);
+
+    color:#fff;
+
+    text-shadow:3px 3px #7b477f;
+
+    margin-bottom:12px;
+
+}
+
+.subtitle{
+
+    max-width:550px;
+
+    line-height:1.7;
+
+    font-size:16px;
+
+    margin-bottom:25px;
+
+}
+
+.qr-box{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+    animation:appear 1s ease;
+
+}
+
+@keyframes appear{
+
+    from{
+
+        transform:scale(.5) rotate(-10deg);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1) rotate(0);
+
+        opacity:1;
+
+    }
+
+}
+
+#qr{
+
+    width:260px;
+
+    height:260px;
+
+    display:block;
+
+}
+
+.scan{
+
+    margin-top:20px;
+
+    font-size:18px;
+
+    color:#ffe5ef;
+
+}
+
+button{
+
+    margin-top:25px;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#ff5f91;
+
+    color:white;
+
+    font-family:monospace;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+}
+
+.note{
+
+    margin-top:15px;
+
+    font-size:13px;
+
+    color:#ead9ed;
+
+}
+
+
+/* HEARTS */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-30px;
+
+    pointer-events:none;
+
+    animation:floatUp linear forwards;
+
+}
+
+@keyframes floatUp{
+
+    0%{
+
+        transform:
+        translateY(0)
+        rotate(0);
+
+        opacity:0;
+
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+        translateY(-110vh)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    #qr{
+
+        width:220px;
+
+        height:220px;
+
+    }
+
+    .qr-box{
+
+        padding:15px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+    <h1>
+        📱 YOUR SECRET SURPRISE
+    </h1>
+
+
+    <p class="subtitle">
+
+        You solved the puzzle! 🔓❤️
+
+        <br><br>
+
+        There's one more little surprise
+        waiting for you.
+
+        <br>
+
+        Scan the QR code below... 💕
+
+    </p>
+
+
+    <div class="qr-box">
+
+        <img
+            id="qr"
+            alt="Secret QR Code"
+        >
+
+    </div>
+
+
+    <p class="scan">
+
+        📸 Scan Me ❤️
+
+    </p>
+
+
+    <p class="note">
+
+        Use your phone camera to scan the code.
+
+    </p>
+
+
+    <button onclick="goFinal()">
+
+        Continue to the Ending 🎆
+
+    </button>
+
+</div>
+
+
+<script>
+
+
+/*
+================================================
+   YOUR SECRET QR MESSAGE
+================================================
+
+You can change this message later.
+
+When Yeshi scans the QR code,
+this message will appear on her phone.
+*/
+
+const secretMessage =
+`Happy 10 Monthsary, my love! ❤️
+
+10 months with you,
+10 months of memories,
+10 months of smiles,
+and 10 months of loving you.
+
+You are one of the most beautiful
+parts of my life.
+
+I love you, Yeshi Lhaden. ❤️`;
+
+
+/*
+================================================
+   CREATE QR CODE
+================================================
+*/
+
+const qrImage =
+document.getElementById("qr");
+
+qrImage.src =
+"https://api.qrserver.com/v1/create-qr-code/?size=500x500&data="
++
+encodeURIComponent(secretMessage);
+
+
+/*
+================================================
+   GO TO FINAL PAGE
+================================================
+*/
+
+function goFinal(){
+
+    window.location.href="final.html";
+
+}
+
+
+/*
+================================================
+   FLOATING HEARTS
+================================================
+*/
+
+function createHeart(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.className="heart";
+
+
+    const symbols=[
+
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "✨",
+        "🌸"
+
+    ];
+
+
+    heart.innerHTML=
+    symbols[
+        Math.floor(
+            Math.random()*symbols.length
+        )
+    ];
+
+
+    heart.style.left=
+    Math.random()*100+"vw";
+
+
+    heart.style.fontSize=
+    (14+Math.random()*20)+"px";
+
+
+    heart.style.animationDuration=
+    (4+Math.random()*4)+"s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },8000);
+
+}
+
+
+setInterval(createHeart,500);
+
+
+</script>
+
+
+</body>
+
+</html>

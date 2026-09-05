@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome ❤️</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body{
+            background:linear-gradient(#9ad6ff,#ffe1f0);
+        }
+        .scene{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            padding:20px;
+        }
+        .character{
+            width:180px;
+            margin-bottom:20px;
+        }
+        .bubble{
+            background:white;
+            color:#333;
+            padding:20px;
+            border-radius:20px;
+            max-width:320px;
+            font-size:20px;
+            min-height:90px;
+            box-shadow:0 8px 20px rgba(0,0,0,.2);
+        }.next{
+            margin-top:40px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <img src="../images/girl.png" class="character">
+        <div class="bubble">
+            <span id="text"></span>
+            </div>
+    <button class="next" onclick="nextPage()">
+        Continue ❤️
+    </button>
+    </div>
+    <script>
+        const message="Hi love ❤️, Welcome to our little world.Thank you for staying by my side for these amazing 10 months.Every moment with you is precious.";
+        let i=0;
+        function typing(){
+            if(i<message.length){
+                document.getElementById("text").innerHTML+=message.charAt(i);
+                i++;
+                setTimeout(typing,40);
+            }
+        }
+        typing();
+        function nextPage(){
+            window.location.href="memories.html";
+        }
+    </script>
+</body>
+</html>

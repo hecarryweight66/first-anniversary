@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Happy 10 Monthsary ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at center,#302050 0%,#120b25 70%);
+
+    font-family:monospace;
+
+    color:white;
+
+    text-align:center;
+
+    overflow:hidden;
+
+}
+
+
+/* ============================= */
+/* MAIN */
+/* ============================= */
+
+.final{
+
+    position:relative;
+
+    z-index:10;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
+
+.small{
+
+    font-size:18px;
+
+    color:#ffd7e5;
+
+    margin-bottom:15px;
+
+    animation:fadeIn 2s ease;
+
+}
+
+
+h1{
+
+    font-size:clamp(32px,8vw,65px);
+
+    color:#ff9fc4;
+
+    text-shadow:
+    4px 4px #713d78,
+    0 0 25px rgba(255,120,165,.7);
+
+    animation:titleAppear 2s ease;
+
+}
+
+
+.name{
+
+    font-size:clamp(28px,7vw,55px);
+
+    margin-top:10px;
+
+    color:white;
+
+    text-shadow:
+    0 0 20px rgba(255,255,255,.7);
+
+    animation:titleAppear 2.5s ease;
+
+}
+
+
+.message{
+
+    max-width:650px;
+
+    margin-top:30px;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#ffe8f0;
+
+    animation:fadeIn 4s ease;
+
+}
+
+
+.love{
+
+    margin-top:25px;
+
+    font-size:28px;
+
+    color:#ff9fc4;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+
+@keyframes titleAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(.5)
+        translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1)
+        translateY(0);
+
+    }
+
+}
+
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+@keyframes pulse{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.12);
+
+    }
+
+}
+
+
+/* ============================= */
+/* FIREWORKS */
+/* ============================= */
+
+.firework{
+
+    position:absolute;
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:white;
+
+    animation:explode 1.5s ease-out forwards;
+
+}
+
+
+@keyframes explode{
+
+    0%{
+
+        transform:
+        translate(0,0)
+        scale(1);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translate(
+            var(--x),
+            var(--y)
+        )
+        scale(0);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ============================= */
+/* HEARTS */
+/* ============================= */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-40px;
+
+    pointer-events:none;
+
+    z-index:5;
+
+    animation:heartUp linear forwards;
+
+}
+
+
+@keyframes heartUp{
+
+    0%{
+
+        transform:
+        translateY(0)
+        rotate(0);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-110vh)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ============================= */
+/* STARS */
+/* ============================= */
+
+.star{
+
+    position:fixed;
+
+    width:3px;
+
+    height:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    animation:twinkle 2s infinite alternate;
+
+}
+
+
+@keyframes twinkle{
+
+    from{
+
+        opacity:.2;
+
+        transform:scale(.7);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1.5);
+
+    }
+
+}
+
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+button{
+
+    margin-top:35px;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#ff5f91;
+
+    color:white;
+
+    font-family:monospace;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    animation:fadeIn 6s ease;
+
+    transition:.3s;
+
+}
+
+
+button:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 25px rgba(255,95,145,.7);
+
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media(max-width:600px){
+
+    .small{
+
+        font-size:15px;
+
+    }
+
+    .message{
+
+        font-size:15px;
+
+    }
+
+    .love{
+
+        font-size:24px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="final">
+
+
+    <p class="small">
+
+        ✨ And finally... ✨
+
+    </p>
+
+
+    <h1>
+
+        HAPPY 10 MONTHSARY
+
+    </h1>
+
+
+    <div class="name">
+
+        YESHI LHADEN ❤️
+
+    </div>
+
+
+    <p class="message">
+
+        Ten months ago, our story began...
+
+        <br><br>
+
+        Since then, you've given me
+        countless smiles, beautiful memories,
+        and moments that I will always treasure.
+
+        <br><br>
+
+        Thank you for being part of my life.
+
+        <br>
+
+        Thank you for every little moment
+        we've shared.
+
+        <br><br>
+
+        This isn't the end of our story.
+
+        <br>
+
+        It's just another beautiful chapter.
+
+    </p>
+
+
+    <div class="love">
+
+        I LOVE YOU ❤️
+
+    </div>
+
+
+    <button onclick="celebrate()">
+
+        ❤️ One More Surprise ❤️
+
+    </button>
+
+
+</div>
+
+
+<script>
+
+
+/* ================================= */
+/* FIREWORK */
+/* ================================= */
+
+function firework(){
+
+    const centerX =
+    Math.random()*window.innerWidth;
+
+    const centerY =
+    Math.random()*
+    (window.innerHeight*.65);
+
+
+    for(let i=0;i<35;i++){
+
+        const particle =
+        document.createElement("div");
+
+        particle.className="firework";
+
+
+        particle.style.left=
+        centerX+"px";
+
+
+        particle.style.top=
+        centerY+"px";
+
+
+        const angle=
+        Math.random()*Math.PI*2;
+
+
+        const distance=
+        50+
+        Math.random()*150;
+
+
+        particle.style.setProperty(
+            "--x",
+            Math.cos(angle)*distance+"px"
+        );
+
+
+        particle.style.setProperty(
+            "--y",
+            Math.sin(angle)*distance+"px"
+        );
+
+
+        document.body.appendChild(
+            particle
+        );
+
+
+        setTimeout(()=>{
+
+            particle.remove();
+
+        },1600);
+
+    }
+
+}
+
+
+/* ================================= */
+/* FIREWORK LOOP */
+/* ================================= */
+
+setInterval(()=>{
+
+    firework();
+
+},900);
+
+
+/* ================================= */
+/* FLOATING HEARTS */
+/* ================================= */
+
+function createHeart(){
+
+    const heart=
+    document.createElement("div");
+
+
+    heart.className="heart";
+
+
+    const symbols=[
+
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💞",
+        "✨",
+        "🌸"
+
+    ];
+
+
+    heart.innerHTML=
+    symbols[
+        Math.floor(
+            Math.random()*symbols.length
+        )
+    ];
+
+
+    heart.style.left=
+    Math.random()*100+"vw";
+
+
+    heart.style.fontSize=
+    (15+Math.random()*25)+"px";
+
+
+    heart.style.animationDuration=
+    (4+Math.random()*5)+"s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },10000);
+
+}
+
+
+setInterval(
+    createHeart,
+    500
+);
+
+
+/* ================================= */
+/* STARS */
+/* ================================= */
+
+for(let i=0;i<80;i++){
+
+    const star=
+    document.createElement("div");
+
+
+    star.className="star";
+
+
+    star.style.left=
+    Math.random()*100+"vw";
+
+
+    star.style.top=
+    Math.random()*100+"vh";
+
+
+    star.style.animationDelay=
+    Math.random()*2+"s";
+
+
+    document.body.appendChild(
+        star
+    );
+
+}
+
+
+/* ================================= */
+/* BIG CELEBRATION */
+/* ================================= */
+
+function celebrate(){
+
+    for(let i=0;i<8;i++){
+
+        setTimeout(()=>{
+
+            firework();
+
+        },i*300);
+
+    }
+
+    document.querySelector(".love")
+    .innerHTML=
+    "FOREVER WITH YOU ❤️♾️";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
