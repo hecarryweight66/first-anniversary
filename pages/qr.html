@@ -303,34 +303,15 @@ button:hover{
 
 /*
 ================================================
-   YOUR SECRET QR MESSAGE
-================================================
-
-You can change this message later.
-
-When Yeshi scans the QR code,
-this message will appear on her phone.
-*/
-
-const secretMessage =
-`Happy 10 Monthsary, my love! ❤️
-
-10 months with you,
-10 months of memories,
-10 months of smiles,
-and 10 months of loving you.
-
-You are one of the most beautiful
-parts of my life.
-
-I love you, Yeshi Lhaden. ❤️`;
-
-
-/*
-================================================
-   CREATE QR CODE
+   SECRET SURPRISE QR CODE
 ================================================
 */
+
+// This is the hidden webpage that opens
+// when Yeshi scans the QR code.
+
+const secretURL =
+"https://hecarryweight66.github.io/first-anniversary/pages/secret-surprise.html";
 
 const qrImage =
 document.getElementById("qr");
@@ -338,8 +319,7 @@ document.getElementById("qr");
 qrImage.src =
 "https://api.qrserver.com/v1/create-qr-code/?size=500x500&data="
 +
-encodeURIComponent(secretMessage);
-
+encodeURIComponent(secretURL);
 
 /*
 ================================================
